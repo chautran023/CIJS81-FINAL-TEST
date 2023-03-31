@@ -33,6 +33,8 @@ export default function Users() {
       .catch((error) => {
         console.log(error);
         setErr(true);
+        console.log(err);
+
       });
   }
   console.log(weather);
@@ -41,8 +43,9 @@ export default function Users() {
     <div className="App">
       Tra cuu thoi tiet <br/>
       <Search  onChangeSearch={handleSearch}/>
-      { Object.keys(weather).length === 0  ? <div></div> : 
+      {
         err ? <div className='position-absolute top-50 start-50 translate-middle'><img src = {not_found} /></div> : 
+        Object.keys(weather).length === 0  ? <div></div> : 
       <div>        
         <div className="container card border-success mb-3 position-absolute top-50 start-50 translate-middle" >
           <div className="card-header bg-transparent border-success">{location}<span>,</span> {country} </div>
